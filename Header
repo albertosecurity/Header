@@ -3,11 +3,11 @@ import subprocess
 import requests
 
 # Leer el archivo Excel
-file_path = r"C:\Users\yalbe\OneDrive\Escritorio\Analisis\HeadersPRHGE.xlsx"
+file_path = r"Archivo.xlsx"
 df = pd.read_excel(file_path)
 
 # Leer las URLs que están en la columna llamada 'URL'
-urls = df['URL'].tolist()
+urls = df['Columna'].tolist()
 
 # Función para generar recomendaciones basadas en OWASP
 def generar_recomendaciones(header):
@@ -139,7 +139,7 @@ df_resultados = pd.DataFrame(resultados)
 df_recomendaciones = pd.DataFrame(recomendaciones)
 
 # Guardar los resultados en un nuevo archivo Excel
-output_file = r"C:\Users\yalbe\OneDrive\Escritorio\Analisis\Headers_Report_With_Recommendations.xlsx"
+output_file = r"Headers_Report_With_Recommendations.xlsx"
 with pd.ExcelWriter(output_file) as writer:
     df_resultados.to_excel(writer, sheet_name='Resultados', index=False)
     df_recomendaciones.to_excel(writer, sheet_name='Recomendaciones', index=False)
